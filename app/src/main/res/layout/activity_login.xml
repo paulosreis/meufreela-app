@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="32dp"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/logoMeuFreela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logoName"
+        android:gravity="center_horizontal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_light_primary"
+        android:layout_marginBottom="72sp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoMeuFreela"
+        android:layout_centerVertical="true"
+        android:gravity="center">
+        <ProgressBar
+            android:id="@+id/registerProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/loginButton"
+            />
+
+        <TextView
+            android:id="@+id/headLineLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/headLineLoginPage"
+            android:gravity="center_horizontal"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="64dp"
+            android:textColor="@color/md_theme_light_onPrimaryContainer" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLogin"
+            android:layout_below="@id/headLineLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/EmailLabelTextField"
+            android:layout_marginBottom="8dp">
+            <!--            app:endIconMode="clear_text"-->
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailLoginEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLogin"
+            android:layout_below="@id/emailLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/PasswordLabelTextField">
+<!--            app:endIconMode="password_toggle">-->
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordLoginEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_below="@id/passwordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/LoginLabelButton" />
+
+        <Button
+            style="@style/Widget.Material3.Button.TextButton"
+            android:id="@+id/forgotPasswordButton"
+            android:layout_below="@id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/forgotPasswordTextButton"
+            android:layout_marginBottom="64sp"
+            android:textColor="@color/md_theme_light_onBackground"/>
+
+
+        <Button
+            style="@style/Widget.Material3.Button.TextButton"
+            android:id="@+id/createAccountButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CreateAccountTextButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+</RelativeLayout>
