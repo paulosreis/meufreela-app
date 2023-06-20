@@ -21,4 +21,12 @@
     <string name="DifferentPasswordErrorTextField">Deve ser igual a senha</string>
     <string name="PasswordLengthErrorTextField">No mínimo 8 dígitos</string>
     <string name="ButtonLogout">Sair</string>
+    <string name="page_1">Início</string>
+    <string name="page_2">Freelancers</string>
+    <string name="page_3">Trabalhos</string>
+    <string name="profile_icon_label">Perfil</string>
+    <string name="page_title_profile">Perfil</string>
+    <string name="fab_label_new_job">Novo trabalho</string>
+    <string name="fab_label_new_freelancer">Novo freelancer</string>
+    <string name="label_fab_add">Adicionar</string>
 </resources>
