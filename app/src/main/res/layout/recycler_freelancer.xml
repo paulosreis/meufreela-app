@@ -4,8 +4,7 @@
     android:id="@+id/cardFreelancer"
     style="@style/Widget.Material3.CardView.Elevated"
     android:layout_width="match_parent"
-    android:layout_height="96dp"
-    android:layout_margin="8dp">
+    android:layout_height="96dp">
 
     <RelativeLayout
         android:layout_width="match_parent"

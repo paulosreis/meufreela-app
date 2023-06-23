@@ -29,14 +29,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topAppBar"
-            app:navGraph="@navigation/mobile_navigation" />
+            app:navGraph="@navigation/mobile_navigation"
+            android:padding="14dp"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16sp"
-            android:layout_marginBottom="16sp"
+            android:layout_marginEnd="14sp"
+            android:layout_marginBottom="14sp"
             android:contentDescription="@string/label_fab_add"
             app:fabSize="auto"
             app:layout_constraintBottom_toTopOf="@id/nav_view"
