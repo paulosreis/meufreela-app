@@ -4,7 +4,8 @@
         android:id="@+id/profile"
         android:icon="@drawable/account_circle_icon"
         android:title="@string/profile_icon_label"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        />
 
 </menu>
 
