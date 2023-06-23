@@ -40,4 +40,10 @@
     <string name="content_desc_card_freelancer">Icone de freelancer</string>
     <string name="label_content_desc_Edit_free">Editar informações do freelancer</string>
     <string name="label_desc_delete_button">Excluir freelancer</string>
+    <string name="pop_up_tittle_delete_confirmation">Confirmação de exclusão</string>
+    <string name="pop_up_desc_delete_freela">Deseja excluir este freelancer?</string>
+    <string name="pop_up_button_confirm">Confirmar</string>
+    <string name="pop_up_button_cancel">Canceler</string>
+    <string name="headline_edit_freelancer">Editar Freelancer</string>
+    <string name="headline_new_freelancer">Novo Freelancer</string>
 </resources>
