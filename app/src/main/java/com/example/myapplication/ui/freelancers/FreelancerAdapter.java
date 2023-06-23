@@ -3,6 +3,7 @@ package com.example.myapplication.ui.freelancers;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.NewFreelancer;
 import com.example.myapplication.R;
 import com.example.myapplication.model.Freelancer;
 
@@ -41,7 +43,7 @@ public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.My
         void onDeleteClick(Freelancer freelancer);
     }
 
-    public void setOnDeleteCLickListener(OnDeleteCLickListener listener){
+    public void setOnDeleteCLickListener(OnDeleteCLickListener listener) {
         onDeleteCLickListener = listener;
     }
 
@@ -55,16 +57,26 @@ public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.My
 
     private void showDeleteConfirmationDialog(final Freelancer freelancer) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Confirmação de exclusão");
-        builder.setMessage("Deseja excluir este freelancer?");
-        builder.setPositiveButton("Sim", (dialog, which) -> {
+        builder.setTitle(R.string.pop_up_tittle_delete_confirmation);
+        builder.setMessage(R.string.pop_up_desc_delete_freela);
+        builder.setPositiveButton(R.string.pop_up_button_confirm, (dialog, which) -> {
             if (onDeleteConfirmationListener != null) {
                 onDeleteConfirmationListener.onDeleteConfirmation(freelancer);
             }
         });
-        builder.setNegativeButton("Cancelar", null);
+        builder.setNegativeButton(R.string.pop_up_button_cancel, null);
         builder.create().show();
     }
+
+    private void editFreelancer(Freelancer freelancer) {
+        Intent intent = new Intent(context, NewFreelancer.class);
+        intent.putExtra("freelancerId", freelancer.getFreelancerId());
+        intent.putExtra("freelancerName", freelancer.getFreelancerName());
+        intent.putExtra("freelancerFunc", freelancer.getFreelancerFunc());
+        intent.putExtra("freelancerPhone", freelancer.getFreelancerPhone());
+        context.startActivity(intent);
+    }
+
 
     @NonNull
     @Override
@@ -81,12 +93,12 @@ public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.My
         holder.funcFreelancerCardTextView.setText(freelancer.getFreelancerFunc());
         holder.phoneFreelancerCardTextView.setText(freelancer.getFreelancerPhone());
         holder.buttonDeleteFreelancerCard.setOnClickListener(v -> {
-            if (onDeleteCLickListener != null){
+            if (onDeleteCLickListener != null) {
                 showDeleteConfirmationDialog(freelancer);
             }
         });
+        holder.buttonEditFreelancerCard.setOnClickListener(v -> editFreelancer(freelancer));
 
-        // Restante do código do ViewHolder...
     }
 
     @Override
