@@ -45,7 +45,16 @@ public class FreelancersFragment extends Fragment {
         freelancersViewModel.getFreelancerListLiveData().observe(getViewLifecycleOwner(), freelancers -> {
             freelancerAdapter.setFreelancers(freelancersViewModel.getFreelancerListLiveData().getValue());
             progressBar.setVisibility(View.GONE);
-            binding.searchViewFreelancers.setVisibility(View.VISIBLE);
+
+            if (freelancers.isEmpty()) {
+                binding.textEmptyFreelancers.setVisibility(View.VISIBLE);
+                binding.searchViewFreelancers.setVisibility(View.GONE);
+
+            } else {
+                binding.textEmptyFreelancers.setVisibility(View.GONE);
+                binding.searchViewFreelancers.setVisibility(View.VISIBLE);
+
+            }
 
         });
 
