@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentFreelancersBinding;
 import com.example.myapplication.model.Freelancer;
 
@@ -44,6 +45,8 @@ public class FreelancersFragment extends Fragment {
         freelancersViewModel.getFreelancerListLiveData().observe(getViewLifecycleOwner(), freelancers -> {
             freelancerAdapter.setFreelancers(freelancersViewModel.getFreelancerListLiveData().getValue());
             progressBar.setVisibility(View.GONE);
+            binding.searchViewFreelancers.setVisibility(View.VISIBLE);
+
         });
 
         freelancerAdapter.setOnDeleteCLickListener(freelancer -> {
@@ -76,14 +79,14 @@ public class FreelancersFragment extends Fragment {
 
     private void showDeleteConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Confirmação de exclusão");
-        builder.setMessage("Deseja excluir este freelancer?");
-        builder.setPositiveButton("Sim", (dialog, which) -> {
+        builder.setTitle(R.string.pop_up_tittle_delete_confirmation);
+        builder.setMessage(R.string.pop_up_desc_delete_freela);
+        builder.setPositiveButton(R.string.pop_up_button_confirm, (dialog, which) -> {
             if (freelancersViewModel != null && freelancerToDelete != null) {
                 freelancersViewModel.deleteFreelancer(freelancerToDelete);
             }
         });
-        builder.setNegativeButton("Cancelar", null);
+        builder.setNegativeButton(R.string.pop_up_button_cancel, null);
         builder.create().show();
     }
 
