@@ -34,6 +34,7 @@ public class FreelancersViewModel extends ViewModel {
         FirebaseDatabase.getInstance().getReference("Users")
                 .child(uid)
                 .child("Freelancers")
+                .orderByChild("name")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -44,6 +45,8 @@ public class FreelancersViewModel extends ViewModel {
                             freelancer.setFreelancerId(snapshot.getKey());
                             freelancerList.add(freelancer);
                         }
+
+                        freelancerList.sort((f1, f2) -> f1.getFreelancerName().compareToIgnoreCase(f2.getFreelancerName()));
                         freelancerListLiveData.setValue(freelancerList);
                     }
 
