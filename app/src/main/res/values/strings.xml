@@ -43,7 +43,7 @@
     <string name="pop_up_tittle_delete_confirmation">Confirmação de exclusão</string>
     <string name="pop_up_desc_delete_freela">Deseja excluir este freelancer?</string>
     <string name="pop_up_button_confirm">Confirmar</string>
-    <string name="pop_up_button_cancel">Canceler</string>
+    <string name="pop_up_button_cancel">Cancelar</string>
     <string name="headline_edit_freelancer">Editar Freelancer</string>
     <string name="headline_new_freelancer">Novo Freelancer</string>
     <string name="toast_label_login_ok">Autenticação realizada com sucesso.</string>
