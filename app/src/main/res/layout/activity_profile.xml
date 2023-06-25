@@ -5,28 +5,41 @@
     android:orientation="vertical">
 
     <!-- Adicione essa toolbar personalizada na sua layout da activity -->
-    <include layout="@layout/toolbar_profile"/>
+    <include layout="@layout/toolbar_profile" />
+
+    <ImageView
+        android:layout_width="96sp"
+        android:layout_height="96sp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/account_circle_icon"
+        android:layout_marginTop="16dp"
+        android:contentDescription= "@string/profile_icon_label" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:padding="16sp"
-        >
-
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/userEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ButtonLogout"
-            android:textStyle="bold" />
+            android:gravity="center_horizontal"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+
+            android:layout_marginTop="8dp"/>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ButtonLogout"
+        android:textStyle="bold"
+        android:layout_marginBottom="16sp"
+        android:layout_gravity="center"/>
+
 </LinearLayout>
