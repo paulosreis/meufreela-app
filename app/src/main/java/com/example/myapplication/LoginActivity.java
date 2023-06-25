@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         Button loginButton = findViewById(R.id.loginButton);
         Button forgotPasswordButton = findViewById(R.id.forgotPasswordButton);
         Button createAccountButton = findViewById(R.id.createAccountButton);
-
 
 
         // ...
@@ -76,14 +75,12 @@ public class LoginActivity extends AppCompatActivity {
             if (errorCount > 0) {
                 if (TextUtils.isEmpty(email)) {
                     emailEditText.requestFocus();
-                }  else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     emailEditText.requestFocus();
                 } else if (TextUtils.isEmpty(password)) {
                     passwordEditText.requestFocus();
                 }
-                return;
-            }
-            else {
+            } else {
                 progressBar.setVisibility(View.VISIBLE);
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, task -> {
@@ -93,7 +90,8 @@ public class LoginActivity extends AppCompatActivity {
 //                                Log.d(TAG, "signInWithEmail:success");
 //                                FirebaseUser user = mAuth.getCurrentUser();
 //                                updateUI(user);
-                                Toast.makeText(LoginActivity.this, "Autenticação realizada com sucesso.",
+                                Toast.makeText(LoginActivity.this, R.string.toast_label_login_ok
+                                        ,
                                         Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
@@ -101,7 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                             } else {
                                 // If sign in fails, display a message to the user.
 //                                Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(LoginActivity.this, "Email ou senha incorretos.",
+                                Toast.makeText(LoginActivity.this, R.string.label_wrong_login
+                                        ,
                                         Toast.LENGTH_SHORT).show();
 //                                updateUI(null);
                             }
@@ -112,7 +111,6 @@ public class LoginActivity extends AppCompatActivity {
             // TODO: implemente a lógica de login aqui
 
         });
-
 
 
         forgotPasswordButton.setOnClickListener(view -> {

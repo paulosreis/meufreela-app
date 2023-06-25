@@ -5,7 +5,10 @@
     style="@style/Widget.Material3.CardView.Elevated"
     android:layout_width="match_parent"
     android:layout_height="96dp"
-    android:layout_marginBottom="14dp">
+    android:layout_marginBottom="14dp"
+    android:clickable="true"
+
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,8 +19,8 @@
             android:id="@+id/recImage"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_marginVertical="18dp"
             android:layout_marginHorizontal="14dp"
+            android:layout_marginVertical="18dp"
             android:contentDescription="@string/content_desc_card_freelancer"
             android:scaleType="centerCrop"
             android:src="@drawable/account_circle_icon" />
@@ -27,8 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_toEndOf="@id/recImage"
-            android:orientation="vertical"
             android:gravity="center_vertical"
+            android:orientation="vertical"
             tools:ignore="RelativeOverlap">
 
             <TextView
@@ -42,8 +45,8 @@
                 android:id="@+id/funcFreelancerCardTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
                 android:layout_marginVertical="2dp"
+                android:text=""
                 android:textAppearance="?attr/textAppearanceBodyMedium"
                 android:textColor="?android:attr/textColorSecondary" />
 
@@ -61,8 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/buttonEditFreelancerCard"
@@ -70,17 +72,16 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:contentDescription="@string/label_content_desc_Edit_free"
-                android:src="@drawable/edit_icon"
-                />
+                android:src="@drawable/edit_icon" />
 
             <ImageButton
                 android:id="@+id/buttonDeleteFreelancerCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
                 android:background="@null"
                 android:contentDescription="@string/label_desc_delete_button"
-                android:src="@drawable/delete_icon"
-                android:layout_marginHorizontal="16dp"/>
+                android:src="@drawable/delete_icon" />
 
         </LinearLayout>
 

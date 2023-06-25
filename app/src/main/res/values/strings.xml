@@ -46,4 +46,6 @@
     <string name="pop_up_button_cancel">Canceler</string>
     <string name="headline_edit_freelancer">Editar Freelancer</string>
     <string name="headline_new_freelancer">Novo Freelancer</string>
+    <string name="toast_label_login_ok">Autenticação realizada com sucesso.</string>
+    <string name="label_wrong_login">Email ou senha incorretos.</string>
 </resources>
