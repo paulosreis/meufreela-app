@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/popup_option_1"
+        android:icon="@drawable/add_icon"
+        android:title="@string/fab_label_new_freelancer" />
+    <item
+        android:id="@+id/popup_option_2"
+        android:icon="@drawable/add_icon"
+        android:title="@string/fab_label_new_job" />
+
+</menu>

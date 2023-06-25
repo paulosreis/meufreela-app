@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="32dp"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/logoMeuFreela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logoName"
+        android:gravity="center_horizontal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_light_primary"
+        android:layout_marginBottom="32sp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoMeuFreela"
+        android:layout_centerVertical="true"
+        android:gravity="center">
+
+
+        <ProgressBar
+            android:id="@+id/registerProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/createAccountButton"
+            />
+
+
+        <TextView
+            android:id="@+id/headLineCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/headLineCreateAccountPage"
+            android:gravity="center_horizontal"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32sp"
+            android:textColor="@color/md_theme_light_onPrimaryContainer" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailCreateAccount"
+            android:layout_below="@id/headLineCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/EmailLabelTextField"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailCreateAccountEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailConfirmCreateAccount"
+            android:layout_below="@id/emailCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/EmailConfirmationLabelTextField"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailConfirmCreateAccountEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordCreateAccount"
+            android:layout_below="@id/emailConfirmCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/PasswordLabelTextField"
+            android:layout_marginBottom="8dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordCreateAccountEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordConfirmCreateAccount"
+            android:layout_below="@id/passwordCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/PasswordConfirmationLabelTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordConfirmCreateAccountEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+            android:id="@+id/createAccountButton"
+            android:layout_below="@id/passwordConfirmCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/CreateAccountLabelButton" />
+
+        <Button
+            style="@style/Widget.Material3.Button.TextButton"
+            android:id="@+id/backToLoginButton"
+            android:layout_below="@id/createAccountButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancelButton"
+            android:textColor="@color/design_default_color_error"/>
+    </RelativeLayout>
+
+</RelativeLayout>
