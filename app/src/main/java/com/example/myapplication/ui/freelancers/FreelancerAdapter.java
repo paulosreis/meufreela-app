@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,11 +21,14 @@ import com.example.myapplication.NewFreelancer;
 import com.example.myapplication.R;
 import com.example.myapplication.model.Freelancer;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.MyViewHolder> {
+public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.MyViewHolder> implements Filterable {
     private final Context context;
     private List<Freelancer> freelancerList;
+    private final List<Freelancer> filteredFreelancerList = new ArrayList<>();
+
     private OnDeleteCLickListener onDeleteCLickListener;
     private OnDeleteConfirmationListener onDeleteConfirmationListener;
 
@@ -35,8 +40,43 @@ public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.My
     @SuppressLint("NotifyDataSetChanged")
     public void setFreelancers(List<Freelancer> freelancers) {
         freelancerList = freelancers;
+        filteredFreelancerList.clear();
+        filteredFreelancerList.addAll(freelancers);
         notifyDataSetChanged();
     }
+
+
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                List<Freelancer> filteredList = new ArrayList<>();
+                if (filterPattern.isEmpty()) {
+                    filteredList.addAll(freelancerList);
+                } else {
+                    for (Freelancer freelancer : freelancerList) {
+                        if (freelancer.getFreelancerName().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(freelancer);
+                        }
+                    }
+                }
+                FilterResults results = new FilterResults();
+                results.values = filteredList;
+                return results;
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                filteredFreelancerList.clear();
+                filteredFreelancerList.addAll((List<Freelancer>) results.values);
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+
 
     public interface OnDeleteCLickListener {
         @SuppressWarnings("unused")
@@ -88,7 +128,7 @@ public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Freelancer freelancer = freelancerList.get(position);
+        Freelancer freelancer = filteredFreelancerList.get(position);
         holder.nameFreelancerCardViewText.setText(freelancer.getFreelancerName());
         holder.funcFreelancerCardTextView.setText(freelancer.getFreelancerFunc());
         holder.phoneFreelancerCardTextView.setText(freelancer.getFreelancerPhone());
@@ -103,8 +143,9 @@ public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.My
 
     @Override
     public int getItemCount() {
-        return freelancerList.size();
+        return filteredFreelancerList.size();
     }
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView recImage;

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,7 +42,7 @@ public class FreelancersFragment extends Fragment {
 
         freelancersViewModel = new ViewModelProvider(this).get(FreelancersViewModel.class);
         freelancersViewModel.getFreelancerListLiveData().observe(getViewLifecycleOwner(), freelancers -> {
-            freelancerAdapter.setFreelancers(freelancers);
+            freelancerAdapter.setFreelancers(freelancersViewModel.getFreelancerListLiveData().getValue());
             progressBar.setVisibility(View.GONE);
         });
 
@@ -51,6 +52,22 @@ public class FreelancersFragment extends Fragment {
         });
 
         freelancerAdapter.setOnDeleteConfirmationListener(freelancer -> freelancersViewModel.deleteFreelancer(freelancer));
+
+
+        binding.searchViewFreelancers.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                freelancerAdapter.getFilter().filter(""); // Atualiza a lista de freelancers filtrados
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                freelancerAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+
 
 
         return root;
