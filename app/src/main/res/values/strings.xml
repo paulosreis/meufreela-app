@@ -54,4 +54,6 @@
     <string name="select_freelancers_label">Escolha os freelancers</string>
     <string name="headline_new_job">Novo trabalho</string>
     <string name="label_select_freelancers">Escolha os freelancers</string>
+    <string name="phone_label">Telefone:</string>
+    <string name="empty_jobs_label">Nenhum trabalho cadastrado</string>
 </resources>
