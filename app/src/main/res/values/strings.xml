@@ -49,4 +49,11 @@
     <string name="toast_label_login_ok">Autenticação realizada com sucesso.</string>
     <string name="label_wrong_login">Email ou senha incorretos.</string>
     <string name="empty_list_freelancers">Nenhum freelancer cadastrado</string>
+    <string name="label_date_new_job">Escolha uma data</string>
+    <string name="label_time_new_job">Escolha um horario</string>
+    <string name="select_freelancers_label">Escolha os freelancers</string>
+    <string name="headline_new_job">Novo trabalho</string>
+    <string name="label_select_freelancers">Escolha os freelancers</string>
+    <string name="phone_label">Telefone:</string>
+    <string name="empty_jobs_label">Nenhum trabalho cadastrado</string>
 </resources>

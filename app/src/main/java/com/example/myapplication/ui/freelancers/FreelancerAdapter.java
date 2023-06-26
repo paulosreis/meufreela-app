@@ -77,7 +77,6 @@ public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.My
     }
 
 
-
     public interface OnDeleteCLickListener {
         @SuppressWarnings("unused")
         void onDeleteClick(Freelancer freelancer);
@@ -131,7 +130,7 @@ public class FreelancerAdapter extends RecyclerView.Adapter<FreelancerAdapter.My
         Freelancer freelancer = filteredFreelancerList.get(position);
         holder.nameFreelancerCardViewText.setText(freelancer.getFreelancerName());
         holder.funcFreelancerCardTextView.setText(freelancer.getFreelancerFunc());
-        holder.phoneFreelancerCardTextView.setText(freelancer.getFreelancerPhone());
+        holder.phoneFreelancerCardTextView.setText(String.format("%s %s", context.getString(R.string.phone_label), freelancer.getFreelancerPhone()));
         holder.buttonDeleteFreelancerCard.setOnClickListener(v -> {
             if (onDeleteCLickListener != null) {
                 showDeleteConfirmationDialog(freelancer);

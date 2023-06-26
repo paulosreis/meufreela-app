@@ -90,7 +90,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, NewFreelancer.class);
                 startActivity(intent);
                 return true;
-            } else return item.getItemId() == R.id.popup_option_2;
+            } else if (item.getItemId() == R.id.popup_option_2) {
+                Intent intent = new Intent(MainActivity.this, NewJob.class);
+                startActivity(intent);
+                return true;
+            }
+            return false;
         });
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.popup_menu, popup.getMenu());
